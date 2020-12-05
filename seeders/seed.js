@@ -1,11 +1,15 @@
 let mongoose = require("mongoose");
 let db = require("../models");
 
-mongoose.connect("mongodb://localhost/workout", {
-  useUnifiedTopology: true,
+process.env.MONGDB_URI
+//mongoose.connect("mongodb://localhost/workout", {
+  mongoose.connect(process.env.MONGDB_URI,
+    {
+    useUnifiedTopology: true,
   useNewUrlParser: true,
   useFindAndModify: false
-});
+    })
+
 
 let workoutSeed = [
   {
